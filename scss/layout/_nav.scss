@@ -1,0 +1,27 @@
+.navContainer{
+    z-index: 100;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 60vw;
+    height:100vh;
+    background-color: $fourthClr;
+    box-shadow: 0 5px 10px #00000050;
+    transition : all 500ms ease-in;
+    &__ul{
+        position: relative;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        margin: auto 0;
+        transition : all 500ms ease-in;
+        &__li{
+            position: relative;
+            padding:$navBtnPdgV $navBtnPdgH;
+            background-color: $fifthClr;
+        }
+    }
+}

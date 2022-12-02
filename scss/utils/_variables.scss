@@ -1,0 +1,178 @@
+@use 'sass:math'; // permet d'utiliser les fonctions mathématiques intégrées de sass
+@use 'sass:color';// permet d'utiliser les fonctions de couleur intégrées de sass
+
+/* Font Awesome */
+//chhemin d'accès relatif FontAwesome icones
+$fa-font-path:"../../assets/fontawesome/webfonts";
+
+
+/* ***** Variable de mesures ***** */
+/* ** Police de Référence ** */
+
+$fontSize: 16px;
+
+/* ** Taille d'écran de référence ** */
+/* ladandscape */
+$vwLRef: 576px;
+$vhLRef: 0px;
+/* Portrait */
+$vwPRef: $vhLRef;
+$vhPRef: $vwLRef;
+/* R&f&rences à utiliser */
+$vwLRef: 576px;
+$vwLRef: 576px;
+
+$deviceWidth: 576px;
+//$1vw: (math.div($deviceWidth ,100)) * 1vw;
+
+/* ***** Couleurs dominantes et variantes  : pour chaque, de foncé à clair ***** */
+/* ** Red ** */
+$mainClr : #e4e4e4;
+$primaryClr: #60DDBB;
+$secondaryClr: #6A5CD6;
+$thirdClr: #ED7278;
+$fourthClr: #a8894f;
+$fifthClr: #f7c273;
+/* ** Desactivated ** */
+$bckgrdClrDctvtd : #616161;
+$fntClrDctvtd  : #BDBDBD;
+/* ** Activated ** */
+$bckgrdClrActvtd : #ffffff;
+$fntClrActvtd  : #222222;
+
+
+$pclrDark : fntClrActvtd;
+$pclrLight : mainClr;
+/* ============================== Btns ============================== */
+/* ================= BTN NAV ================= */
+// btn--nav dimensions
+$navBtnWidth : 3rem;
+$navBtnAspRat : 16/9;
+
+// btn--nav Colors
+$navBtnBckgrdClr :#1c1c1c;
+$navBtnBckgrdHvrClr : color.scale($navBtnBckgrdClr,$lightness : +40%);
+$navBtnFntClr : color.scale($navBtnBckgrdClr,$lightness : +90%);
+$navBtnFntClrHvr : color.scale($navBtnFntClr,$lightness : -40%);
+
+// btn--nav margin
+$navBtnMgnTp : .3rem;
+$navBtnMgnRgt : .5rem;
+$navBtnMgnBtm : .3rem;
+$navBtnMgnLft : .5rem;
+
+$navBtnMgnV : .2rem;
+$navBtnMgnH : .5rem;
+
+// btn--nav padding
+$navBtnPdgTp : .3rem;
+$navBtnPdgRgt : .5rem;
+$navBtnPdgBtm : .3rem;
+$navBtnPdgLft : .5rem;
+
+$navBtnPdgV : .3rem;
+$navBtnPdgH : .5rem;
+
+// btn--nav radius
+$navBtnRadTpRgt : .3rem;
+$navBtnRadTpLft : .3rem;
+$navBtnRadBtmRgt : .5rem;
+$navBtnRadBtmLft : .3rem;
+$navBtnRad : .5rem;
+
+/* ================= BTN Prim ================= */
+// btn--nav dimensions
+$primBtnWidth : 3rem;
+$primBtnAspRat : 16/9;
+
+// btn--nav Colors
+$primBtnBckgrdClr :#1c1c1c;
+$primBtnBckgrdHvrClr : color.scale($navBtnBckgrdClr,$lightness : +20%);
+$primBtnFntClr : color.scale($navBtnBckgrdClr,$lightness : +90%);
+$primBtnFntClrHvr : color.scale($navBtnFntClr,$lightness : -40%);
+$primBtnShdwClr: #000000;
+
+// btn--nav margin
+$primBtnMgnTp : .3rem;
+$primBtnMgnRgt : .5rem;
+$primBtnMgnBtm : .3rem;
+$primBtnMgnLft : .5rem;
+
+$primBtnMgnV : .2rem;
+$primBtnMgnH : .5rem;
+
+// btn--nav padding
+$primBtnPdgTp : .3rem;
+$primBtnPdgRgt : .5rem;
+$primBtnPdgBtm : .3rem;
+$primBtnPdgLft : .5rem;
+
+$primBtnPdgV : .3rem;
+$primBtnPdgH : .5rem;
+
+// btn--nav radius
+$primBtnRadTpRgt : .3rem;
+$primBtnRadTpLft : .3rem;
+$primBtnRadBtmRgt : .5rem;
+$primBtnRadBtmLft : .3rem;
+$primBtnRad : .5rem;
+
+
+/* ================= BTN BURGER ================= */
+// btn--nav dimensions
+$brgrBtnSize : 2rem;
+$brgrBckgrdClr : $secondaryClr;
+
+
+/* ================= BTN Close ================= */
+// btn--nav dimensions
+$closeBtnBtnSize : 2rem;
+$closeBtnBckgrdClr : $primaryClr;
+$closeBtnBckgrdClrHvr : $secondaryClr;
+
+/* ============================== TXT ============================== */
+// $mainClr : #e4e4e4;
+// $primaryClr: #60DDBB;
+// $secondaryClr: #6A5CD6;
+// $thirdClr: #ED7278;
+// $fourthClr: #D6B05C;
+// $fifthClr: #91F76A;
+
+$h1Clr : $primaryClr;
+$h1FntFam : 'replayregular', sans-serif;
+
+$h2Clr : $secondaryClr;
+$h2FntFam : 'futuristbold_italic', sans-serif;
+
+$h3Clr : $secondaryClr;
+$h3FntFam : 'futuristbold', sans-serif;
+
+$h4Clr : $thirdClr;
+$h4FntFam : 'futuristregular', sans-serif;
+
+$h5Clr : $thirdClr;
+$h5FntFam : 'futuristregular', sans-serif;
+
+$h6Clr : $fourthClr;
+$h6FntFam : 'robotomedium', sans-serif;
+
+$pClr : #000000;
+$pFntFam : 'robotoregular', sans-serif;
+
+$aClr : $primaryClr;
+$aFntFam : 'robotolight', sans-serif;
+
+$blockquoteClr : $thirdClr;
+$blockquoteFntFam : 'futuristitalic', sans-serif;
+
+$citeClr : $secondaryClr;
+$citeFntFam : 'robotothin', sans-serif;
+
+$legendClr : $fourthClr;
+$legendFntFam : 'robotothin', sans-serif;
+
+$labelClr : #000000;
+$labelFntFam : 'robotolight', sans-serif;
+
+$inputClr : #000000;
+$inputFntFam : 'robotoregular', sans-serif;

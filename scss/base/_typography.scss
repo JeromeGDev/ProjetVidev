@@ -1,0 +1,46 @@
+@use 'sass:math'; // Permet d'utiliser des fonctions intégrées SASS de calcul mathématiques dans ce fichier
+@use 'sass:color'; // Permet d'utiliser des fonctions intégrées SASS de modification des couleurs dans ce fichier
+
+h1{
+    font-family: $h1FntFam;
+}
+h2{
+    font-family: $h2FntFam;
+}
+h3{
+    font-family: $h3FntFam;
+}
+h4{
+    font-family: $h4FntFam;
+}
+h5{
+    font-family: $h5FntFam;
+}
+h6{
+    font-family: $h6FntFam;
+}
+p{
+    font-family: $pFntFam;
+}
+a{
+    font-family:$aFntFam;
+}
+blockquote{
+    font-family: $blockquoteFntFam;
+}
+
+cite{
+    font-family: $citeFntFam;
+}
+legend{
+    font-family: $legendFntFam;                                  
+}
+label{
+    font-family: $labelFntFam;
+}
+input,
+select,
+fieldset{
+    font-family: $inputClr;
+}
+

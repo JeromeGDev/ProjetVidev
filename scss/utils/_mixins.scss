@@ -1,0 +1,148 @@
+@use 'sass:math';
+
+@mixin btn__nav{
+    display:flex;
+    flex-wrap:nowrap;
+    justify-content:center;
+    align-items:center;
+    align-content:center;
+    width:350px;
+    aspect-ratio: 350/100;
+    padding:1rem 2rem .8rem 2rem;
+    margin:auto;
+    text-decoration: none;
+    position:relative;
+    padding:1rem 2.5rem .8rem 2rem;
+    &:before{
+        content:">";
+        position:absolute;
+        top:50%;
+        transform: translateY(-50%) rotate(90deg);
+        right:10px;
+    }
+}
+
+/* ========================= Mixins Flex =========================*/
+@mixin flexBtn{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: $primBtnWidth;
+    aspect-ratio: $primBtnAspRat;
+    background-color: $primBtnBckgrdClr;
+    color:$primBtnFntClr;
+    box-shadow: 0 0 10px $primBtnShdwClr;
+    & a{
+        color:$primBtnFntClr;
+    }
+    &:hover{
+        background-color: $navBtnBckgrdHvrClr;
+        box-shadow: 0 0 20px $primBtnShdwClr;
+        transform: scale(1.1);
+    }
+    &:hover > a{
+        color: $primBtnFntClrHvr;
+    }
+}
+
+@mixin navBtn{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: $navBtnWidth;
+    aspect-ratio: $navBtnAspRat;
+    padding : $navBtnPdgV $navBtnPdgH;
+    margin: $navBtnMgnV $navBtnMgnH;
+    background-color: $navBtnBckgrdClr;
+}
+
+// flex Menu
+@mixin flexVmenu{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: $ulgap;
+    @include flexVcenterHleft;
+}
+
+@mixin flexHmenu{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: $ulpadding;
+    gap: $ulgap;
+}
+
+@mixin ulpadding{
+    padding-top: rem;
+    padding-right: rem;
+    padding-bottom: rem;
+    padding-left: rem;
+}
+// flex align top
+@mixin flexVtopHcenter{
+    justify-content: center;
+    align-items: flex-start;
+}
+
+@mixin flexVtopHleft{
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+@mixin flexVtopHright{
+    justify-content: flex-end;
+    align-items:center;
+}
+
+// flex align middle
+
+@mixin flexVcenterHcenter{
+    justify-content: center;
+    align-items:center;
+}
+
+@mixin flexVcenterHleft{
+    justify-content: flex-start;
+    align-items:center;
+}
+
+@mixin flexVcenterHright{
+    justify-content: flex-end;
+    align-items:center;
+}
+
+// flex align bottom
+
+@mixin flexVbottomHcenter{
+    justify-content: center;
+    align-items:flex-end;
+}
+
+@mixin flexVbottomHleft{
+    justify-content: flex-start;
+    align-items:flex-end;
+}
+
+@mixin flexVbottomHright{
+    justify-content: flex-end;
+    align-items:flex-end;
+}
+
+/* ========================= Mixins Flex =========================*/
+@mixin grid($gridColums,$gridRows,$gridGap){
+    display:grid;
+    grid-template-columns: $gridColums *1fr;
+    grid-template-rows: $gridRows *1fr;
+    gap: $gridGap * 1rem;
+}
+
+@mixin move($left-start, $left-stop,$transition-speed) {
+    position: absolute;
+    left: $left-start;
+    transition: left ($left-stop - $left-start) * $transition-speed;
+  
+    &:active {
+      left: $left-stop;
+    }
+  }

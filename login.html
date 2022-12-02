@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Videv</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <body>
+
+        <main>
+            <section id="formIdBlock">
+                <div>
+                    <h3>Formulaire d'identification</h3>
+                    <h4>Connectez-vous</h4>
+                </div>
+                <div>
+                    <div id="loginContainer">
+                        <div class="form">
+                            <div class="form__inputGroup">
+                                <label class="form__inputGroup__label" for="emailId">Identifiant de connexion</label>
+                                <input class="form__inputGroup__field" type="email" name="emailId" id="emailId" placeholder="votremail@fai.ext"/>
+                            </div>
+            
+                            <div class="form__inputGroup">
+                                <label class="form__inputGroup__label" for="psdCo">Mot de passe</label>
+                                <input class="inputGroup__field" type="password" name="psdCo" id="psdCo" placeholder="Mot de passe confidentiel"/>
+                            </div>
+                            <input class="form__button" id="checkAuthBtn" type="submit" value="ME CONNECTER"/>
+                            <input class="form__button" id="signInBtn" type="submit" value="M'ENREGISTRER"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <script src="assets/js/checklogin.js" async defer></script>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+/* Inistructions basiques d'initialisation */
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+body{
+    font-size:$fontSize;
+    background-color: $mainClr;
+}
+
+html, body{
+    height:100%;
+    width:100%;
+    min-height:99vh;
+    min-width:99vw;
+}

@@ -1,0 +1,23 @@
+@use 'sass:math';
+
+@function rem($pixel){
+    @return math.div($pixel,$fontSize) *1rem;
+}
+
+@function vw($pixel){
+    @return math.div($pixel,$vwRef) *1vw;
+}
+
+@function vh($pixel){
+    @return math.div($pixel,$vhRef) *1vh;
+}
+
+@function deviceFormat($vwRef,$vhRef){
+    
+}
+
+// @function translate(){
+
+// }
+
+

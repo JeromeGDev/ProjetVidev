@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Videv</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <body>
+
+        <main>
+            <section id="formIdBlock">
+                <div>
+                    <h3>Formulaire d'inscription</h3>
+                    <h4>Enregistrez-vous</h4>
+                </div>
+                <div>
+                    <div id="loginContainer">
+                        <form class="form" action="">
+
+                            <div class="form__inputGroup">
+                                <label class="form__inputGroup__label" for="newNameId">Identifiant de connexion</label>
+                                <input class="form__inputGroup__field" type="name" name="newNameId" id="newNameId" placeholder="Nom, surnom, libre de choix"/>
+                            </div>
+
+                            <div class="form__inputGroup">
+                                <label class="form__inputGroup__label" for="userEmailId">email de connexion</label>
+                                <input class="form__inputGroup__field" type="email" name="userEmailId" id="userEmailId" placeholder="votremail@fai.ext"/>
+                            </div>
+            
+                            <div class="form__inputGroup">
+                                <label class="form__inputGroup__label" for="newPsdId">Mot de passe</label>
+                                <input class="inputGroup__field" type="password" name="newPsdId" id="newPsdId" placeholder="Mot de passe confidentiel"/>
+                            </div>
+                            <input class="form__button" id="validateSignInBtn" type="submit" value="M'INSCRIRE"/>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <script src="assets/js/createuser.js" async defer></script>
+    </body>
+</html>

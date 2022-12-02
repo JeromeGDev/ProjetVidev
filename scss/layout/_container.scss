@@ -1,0 +1,122 @@
+@use 'sass:math'; // permet d'utiliser les fonctions mathématiques intégrées de sass
+@use 'sass:color';// permet d'utiliser les fonctions de couleur intégrées de sass
+#headerSerie{
+    margin : auto;
+    padding: 1rem 0;
+    font-size: 2rem;
+    color: $secondaryClr;
+}
+
+#serieContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+.mainS{
+    display: block;
+    width:100%;
+    &__mainsA{
+        display:flex;
+        flex-wrap: nowrap;
+        flex-direction:column;
+        align-items: stretch;
+        align-content: center;
+        &__InfosBlock{
+            padding-top:2rem;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            width:100%;
+            &__poster{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                aspect-ratio: 210/295;
+
+                &__img{
+                    display: inline;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    aspect-ratio: 210/295;
+                }
+            }
+            &__summary{
+                display:flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                padding: 0 1rem;
+                gap:2rem;
+                & h2{
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                }
+                & p{
+                    display:inline-block;
+                    margin-bottom: 1rem;
+                    color: $secondaryClr;
+                }
+
+            }
+        }
+        &__asideInfo{
+            min-width: max-content;
+            &__sidebar{
+                min-width: max-content;
+                padding: 2rem;
+                background-color: $secondaryClr;
+
+                &__asideH3{
+                    color: $h6Clr;
+                    font-size: 1.5rem;
+                    margin: 0 0 .8rem 0;
+                }
+                & ul{
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: nowrap;
+                    gap:.5rem;
+                    list-style: none;
+                    & li{
+                        list-style: none;
+                        white-space: nowrap;
+                        color: $mainClr;
+                        gap:.5rem;
+                        margin: 0 0 .8rem 0;
+                        font-size: 1rem;
+                        font-family: $aFntFam;
+                    }
+                }
+            }
+        }
+    }
+}
+.asideSpans{
+    &__spanTitle{
+        white-space: nowrap;
+        color: color.scale($h6Clr, $lightness: +30%);
+        margin:.5rem 0;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    &__spanText{
+        white-space: nowrap;
+        color: color.scale($fourthClr, $lightness: +70%);
+        margin:.5rem 0 .5rem 1rem;
+        font-weight: 500;
+    }
+}
+@media screen and (min-width: 1440px){
+    .mainS{
+        padding:3rem;
+        &__mainsA{
+            flex-direction:row;
+            &__InfosBlock{
+                flex-direction: row;
+                width:70%;
+            }
+        }
+    }
+    
+}

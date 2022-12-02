@@ -1,0 +1,38 @@
+[
+        {
+                "id": 1,
+                "name": "John",
+                "email": "john@noob.com",
+                "psd" : "admin1234"
+        },{
+                "id": 2,
+                "name": "Henri",
+                "email": "henri@noob.com",
+                "psd" : "admin1234"
+        },{
+                "id": 3,
+                "name": "Apollo",
+                "email": "apollo@noob.com",
+                "psd" : "admin1234"
+        },{
+                "id": 4,
+                "name": "Cavil",
+                "email": "cavil@noob.com",
+                "psd" : "admin1234"
+        },{
+                "id": 5,
+                "name": "Adama",
+                "email": "adama@noob.com",
+                "psd" : "admin1234"
+        },{
+                "id": 6,
+                "name": "Starbuck",
+                "email": "starbuck@noob.com",
+                "psd" : "admin1234"
+        },{
+                "id": 7,
+                "name": "Maverick",
+                "email": "maverick@noob.com",
+                "psd" : "admin1234"
+        }
+]

@@ -1,0 +1,153 @@
+@use 'sass:math'; // permet d'utiliser les fonctions mathématiques intégrées de sass
+@use 'sass:color';// permet d'utiliser les fonctions de couleur intégrées de sass
+
+#formIdBlock{
+    display: flex;
+    width: 90%;
+    height: 60%;
+    margin: auto auto;
+    align-self: center;
+    justify-self: center;
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgb(0 0 0 / 50%);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: stretch;
+    & h3{
+        color:$h3Clr;
+        font-size: 2rem;
+        margin:2rem;
+    }
+    & h4{
+        color:$h4Clr;
+        font-size: 2rem;
+        margin:2rem;
+    }
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin : auto;
+    background :#d4d4d4;
+    gap : 3rem;
+    padding:2rem;
+    border-radius:.75rem;
+    box-shadow: 0 0 20px #00000080;
+;
+    &__inputGroup{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap : 1rem;
+        max-width: 100%;
+        width:100%;
+        height:80%;
+        & label{
+            font-family: $labelFntFam ;
+            font-size:  1rem;
+            line-height: 1.75rem;
+            color: $labelClr;
+            font-weight:700;
+            white-space: nowrap;
+        }
+        & input{
+            font-family:$inputFntFam ;
+            font-size:  1rem;
+            line-height: 1.75rem;
+            color: $fntClrDctvtd;
+            font-weight:700;
+            text-align: center;
+            width:100%;
+            border-radius: 5px;
+            border: thin solid $secondaryClr;
+            background:$bckgrdClrDctvtd;
+            padding:.2rem;
+        }
+        & :active,
+        & :focus{
+            background-color: $bckgrdClrActvtd;
+            color: $fntClrActvtd;
+            border: thin solid $secondaryClr;
+        }
+    }
+    &__button{
+        @include flexBtn;
+        border-radius: .5rem;
+        font-size:1.15rem;
+        aspect-ratio:400/50;
+        margin:auto;
+        width:100%;
+        background-color: $primaryClr;
+        color: color.scale($secondaryClr, $lightness: -40%);
+
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    #formIdBlock{
+        display:block;
+        width:60%;
+        height: 60%;
+        margin:auto;
+        background-color: #ffffff;
+        box-shadow: 0 0 15px #00000080;
+        border-radius: 1rem;
+        padding:2rem;
+        text-align: center;
+        & h3{
+            color:$h3Clr;
+            font-size: 2rem;
+            margin:2rem;
+        }
+        & h4{
+            color:$h4Clr;
+            font-size: 2rem;
+            margin:2rem;
+        }
+    }
+
+    .form{
+        justify-content: flex-end;
+        align-items: flex-start;
+        align-content: flex-start;
+        width:80%;
+        height:70%;
+        &__inputGroup{
+            justify-content: space-between;
+            & label{
+                text-align: right;
+                width:25%;
+            }
+            & input{
+                text-align: left;
+                width:70%;        }
+        }
+        &__button{
+            width:50%;
+            padding:.5rem .8rem;
+        }
+    }
+}
+@media screen and (min-width: 1440px) {
+
+
+    .form{
+
+        &__inputGroup{
+        flex-direction: row;
+            justify-content: space-between;
+        }
+        &__button{
+            background-color: $primaryClr;
+
+        }
+    }
+}
