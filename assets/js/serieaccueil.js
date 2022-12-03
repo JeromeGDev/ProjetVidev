@@ -1,19 +1,44 @@
+// Sélection du conteneur principal
 const showroomContainer = document.querySelector( "#showroomContainer" );
 console.log( "showroomContainer", showroomContainer );
 
+
+/* ========== Slider : Mise en place ========== */
+// Mise en place des éléments du slider
+// Conteneur extérieur du slider - masque d"écrêtage
 let sliderBlockMask = document.createElement( "div" );
 sliderBlockMask.setAttribute( "class", "sliderBlockMask" );
 
-showroomContainer.appendChild(sliderBlockMask)
 
+// Conteneur interne du slider - contient toutes les fiches des séries qui seront créées plus bas dans le foreEach
 let sliderBlock = document.createElement( "div" );
 sliderBlock.setAttribute( "class", "sliderBlockMask__sliderBlock" );
 
-sliderBlockMask.appendChild(sliderBlock)
+// Imbrication des conteneurs les uns dans les autres
+sliderBlockMask.appendChild(sliderBlock) // masque interne du slider dans le conteneur externe
+showroomContainer.appendChild(sliderBlockMask) // masque externe du slider dans le conteneur global da la page = section #showroomContainer
 
-// bouton gauche du slider
+// Création du bouton droit du slider
+let rightArrow = document.createElement( "div" );
+rightArrow.setAttribute( "class", "rightTransBtn" );
+rightArrow.setAttribute("id","toRight");
+
+let rightArrow1 = document.createElement( "div" );
+rightArrow1.setAttribute( "class", "rightTransBtn__btnR1" );
+
+let rightArrow2 = document.createElement( "div" );
+rightArrow2.setAttribute("class","rightTransBtn__btnR2");
+
+rightArrow.appendChild( rightArrow1 ); // imbrication dans éléments dans leur conteneur parent pour donner naissance au bouton
+rightArrow.appendChild( rightArrow2 ); // imbrication dans éléments dans leur conteneur parent pour donner naissance au bouton
+
+showroomContainer.appendChild( rightArrow ); // imbrication dans éléments dans leur conteneur parent => bouton dans conteneur globale (section)
+
+
+// Création du bouton gauche du slider
 let leftArrow = document.createElement( "div" );
-leftArrow.setAttribute("class","leftTransBtn");
+leftArrow.setAttribute( "class", "leftTransBtn" );
+leftArrow.setAttribute("id","toLeft");
 
 let leftArrow1 = document.createElement( "div" );
 leftArrow1.setAttribute( "class", "leftTransBtn__btnL1" );
@@ -23,13 +48,13 @@ let leftArrow2 = document.createElement( "div" );
 leftArrow2.setAttribute("class","leftTransBtn__btnL2");
 leftArrow2.innerText = '-';
 
-leftArrow.appendChild( leftArrow1 );
-leftArrow.appendChild( leftArrow2 );
+leftArrow.appendChild( leftArrow1 ); // imbrication dans éléments dans leur conteneur parent pour donner naissance au bouton
+leftArrow.appendChild( leftArrow2 ); // imbrication dans éléments dans leur conteneur parent pour donner naissance au bouton
 
-showroomContainer.appendChild( leftArrow );
+showroomContainer.appendChild( leftArrow ); // imbrication dans éléments dans leur conteneur parent => bouton dans conteneur globale (section)
 
-
-
+/* ========== Contenu de la page : Mise en place ========== */
+// Mise place du contenu du fetch dans la page :
 // Numero de la page appelée dans le fetch fetchShowroom - a rendre dynamique par la création d'une pagination
 const page = 1;
 
@@ -69,16 +94,17 @@ const fetchShowroom = fetch( `https://api.tvmaze.com/shows?page=${page}` )
 } );
 
 
+// Création de la fonction qui va créer chaque fiche série en fonction des données reçues dans le fetch
 function serieShowroom( series ){
-console.log( "series", series )
+    //console.log( "series", series ) // Console de débuguage
+    
+    // Création des div conteneurs de chaque fiche serie
     series.forEach( serie => {
         
-
-        
+        // Création de la div conteneur
         let serieBlock = document.createElement( "article" );
-        serieBlock.setAttribute( "class", "#showroomContainer__sliderBlockMask__sliderBlock__slide artMainContainer" );
-        //serieBlock.setAttribute( "class", "#showroomContainer__artMainContainer" );
-        
+        serieBlock.setAttribute( "class", "#showroomContainer__sliderBlockMask__sliderBlock__slide artMainContainer toSlide" );
+        serieBlock.setAttribute( "id", serie.id );// ajout de l'id pour l'utilisation dans le slide
 
 
         let infosContainer = document.createElement( "div" );
@@ -126,11 +152,11 @@ console.log( "series", series )
             seasonContainer.innerHTML = "<span>Dernière saison :</span>" + serie.ended;
         }
         
-        averageRuntimeContainer.innerHTML = "<span>Synopsis :</span>" + serie.averageRuntime;
+        averageRuntimeContainer.innerHTML = "<span>Durée moyenne :</span>" + serie.averageRuntime;
         languageContainer.innerHTML = "<span>Langue :</span>" + serie.language; 
         typeContainer.innerHTML = "<span>Genre :</span>" + serie.type;
         // summaryContainer.innerHTML = "<span>Synopsis :</span>" + serie.show.summary; // finalement abandonné mais dispo
-        //ratingContainer.innerHTML = "<span>Note moyenne :</span>" + serie.rating.average; // finalement abandonné mais dispo
+        // ratingContainer.innerHTML = "<span>Note moyenne :</span>" + serie.rating.average; // finalement abandonné mais dispo
         // scheduleContainer.innerHTML = "<span>Première diffusion :</span>" + serie.show.premiered; // finalement abandonné mais dispo
         // statusContainer.innerHTML = "<span>Statut :</span>" + serie.show.status; // finalement abandonné mais dispo
         
@@ -162,29 +188,36 @@ console.log( "series", series )
         })
     } )
     
-    // Slider
+
 }
 console.log( "showroomContainer", showroomContainer )
 
 
 
-// bouton droit du slider
-let rightArrow = document.createElement( "div" );
-rightArrow.setAttribute("class","rightTransBtn");
 
-let rightArrow1 = document.createElement( "div" );
-rightArrow1.setAttribute( "class", "rightTransBtn__btnR1" );
-//rightArrow1.innerText = '-';
+/* ========== Slider : Fonctionnement ========== */
+// Sélection du conteneur à déplacer
+const toSlide = document.querySelectorAll( ".toSlide" );
+console.log( "toSlide", toSlide )
 
-let rightArrow2 = document.createElement( "div" );
-rightArrow2.setAttribute("class","rightTransBtn__btnR2");
-//rightArrow2.innerText = '-';
+const toLeftMover = document.querySelector( "#toLeft" );
+const toRightMover = document.querySelector( "#toRight" );
 
-rightArrow.appendChild( rightArrow1 );
-rightArrow.appendChild( rightArrow2 );
+toLeftMover.addEventListener( "click", scrollLeft );
+toRightMover.addEventListener( "click", scrollRight);
 
-showroomContainer.appendChild( rightArrow );
-
+const getTarget = () => {
+    toSlide.foreach( ( slide ) => {
+        console.log("valeur id", slide.id)
+    })
+}
+getTarget();
+function scrollLeft() {
+    toSlide.scrollTo( -200, 0 );
+}
+function scrollRight() {
+    toSlide.scrollTo( 200, 0 );
+}
 // CRÉATION DE LA PAGINATION
 // 1 - création du conteneur des boutons de pagination
 //const btnChangePageContainer = document.CreateElement ("div");

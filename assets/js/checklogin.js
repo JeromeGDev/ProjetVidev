@@ -65,7 +65,7 @@ function checkAuth( emailIn, psdIn,users ) {
     users.forEach( ( user ) => {
         if (( emailIn == user.email ) && ( psdIn == user.psd )) {
             localStorage.setItem( "authAccess", "allowedAccess" );
-            window.open( "/mon-compte.html" );
+            document.location( "/mon-compte.html" );
     } else {
         alert( "accès interdit" );
     }
@@ -74,7 +74,8 @@ function checkAuth( emailIn, psdIn,users ) {
 
 // fonction d'appel de la page d'inscription
 function signIn() {
-    window.open( "/signin.html" );
+    //window.open( "/signin.html" );
+    document.open( "/signin.html" );
 }
 
 

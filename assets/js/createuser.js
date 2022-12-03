@@ -43,18 +43,12 @@ async function fetchUsers() {
 
 
 
-// pour l'authentification
-const userInPsd = document.querySelector( "#psdCo" )
-const userInEmail = document.querySelector( "#emailId" );
+
 
 // pour l'inscription
 const newNameId = document.querySelector( "#newNameId" );
 const newPsdId = document.querySelector( "#newPsdId" )
 const userEmailId = document.querySelector( "#userEmailId" );
-
-// Authentitfication
-const checkAuthBtn = document.querySelector( "#checkAuthBtn" );
-checkAuthBtn.addEventListener( "click", checkAuth );
 
 // acces inscription
 const signInBtn = document.querySelector( "#signInBtn" );
@@ -64,21 +58,6 @@ signInBtn.addEventListener( "click", signIn );
 const validateSignInBtn = document.querySelector( "#validateSignInBtn" );
 validateSignInBtn.addEventListener( "click", inscription( id, UserName, email, psd ) );
 
-// fonction de vérification de l'authentification
-function checkAuth( emailIn, psdIn ) {
-    emailIn = userInEmail.value;
-    console.log( "emailIn", emailIn );
-    psdIn = userInPsd.value;
-    console.log( "psdIn", psdIn );
-    users.forEach( ( user ) => {
-        if (( emailIn == user.email ) && ( psdIn == user.psd )) {
-            localStorage.setItem( "authAccess", "allowedAccess" );
-            window.open( "/mon-compte.html" );
-    } else {
-        alert( "accès interdit" );
-    }
-    })
-}
 
 // fonction d'appel de la page d'inscription
 function signIn() {
