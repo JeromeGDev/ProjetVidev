@@ -56,7 +56,13 @@ signInBtn.addEventListener( "click", signIn );
 
 // valider formulaire inscription
 const validateSignInBtn = document.querySelector( "#validateSignInBtn" );
-validateSignInBtn.addEventListener( "click", inscription( id, UserName, email, psd ) );
+validateSignInBtn.addEventListener( "click", () => {
+    if (checkForm() === true) {
+        inscription( id, UserName, email, psd ) // manque une sécurité pour éviter une attaque par injection xss
+    } else {
+    alert( "formulaire rempli de manière incorrecte" );
+}
+});
 
 
 // fonction d'appel de la page d'inscription
@@ -84,6 +90,7 @@ function inscription(id,UserName,email,psd) {
 
     userToAdd = new userConstruct( id, UserName, email, psd );
     
+
     nameIn = newNameId.value;
     console.log( "emailIn", emailIn );
     userToAdd.UserName = nameIn;
@@ -99,4 +106,41 @@ function inscription(id,UserName,email,psd) {
     users.push.userToAdd = (id,UserName,email,psd)
 }
 
+// fonction de vérification du formulaire d'inscription
+function checkForm() {
+    let UserName = document.forms["RegForm"]["Nom"];               
+    let email = document.forms["RegForm"]["Email"];    
+    let psd = document.forms["RegForm"]["Mot de passe"];  
+
+    if (UserName.value == "") { 
+        alert("Mettez votre nom."); 
+        UserName.focus(); 
+        return false; 
+    }    
+    if (email.value == "") { 
+        alert("Mettez une adresse email valide."); 
+        email.focus(); 
+        return false; 
+    }    
+    if (email.value.indexOf("@", 0) < 0) { 
+        alert("Mettez une adresse email valide."); 
+        email.focus(); 
+        return false; 
+    }    
+    if (email.value.indexOf(".", 0) < 0) { 
+        alert("Mettez une adresse email valide."); 
+        email.focus(); 
+        return false; 
+    }    
+    if (psd.value == "") { 
+        alert("Saisissez votre mot de passe"); 
+        psd.focus(); 
+        return false; 
+    }    
+    return true; 
+}
+
+
+
 fetchUsers()
+

@@ -1,4 +1,5 @@
 @use 'sass:math';
+@use 'sass:color';
 #showroomContainer {
     display: flex;
     position:relative;
@@ -27,7 +28,7 @@
         height:50%;
         font-size: 1rem;
         transform: translateY(-25%);
-        background-color: #00000080;
+        background-color: $fourthClr;
         margin-left:1rem;
         border-bottom-left-radius: 5px;
         border-top-left-radius: 5px;
@@ -68,10 +69,10 @@
             display: block;
             width: 10%;
             height: 41%;
-            background-color:#fff;
+            background-color: color.scale($fourthClr, $lightness : +70%);
             border-top-right-radius: 50px;
             border-top-left-radius: 50px;
-            box-shadow : 0 0 10px #00000050;
+            //box-shadow : 0 0 10px #00000050;
             &:hover{
                 cursor:pointer;
                 box-shadow: 0 0 25px #00000050;
@@ -86,10 +87,10 @@
             display: block;
             width: 10%;
             height: 41%;
-            background-color: #fff;
+            background-color: color.scale($fourthClr, $lightness : +70%);
             border-top-right-radius: 50px;
             border-top-left-radius: 50px;
-            box-shadow : 0 0 10px #00000050;
+            //box-shadow : 0 0 10px #00000050;
             &:hover{
                 cursor:pointer;
                 box-shadow: 0 0 25px #00000050;
@@ -107,7 +108,7 @@
         height:50%;
         font-size: 1rem;
         transform: translateY(-25%);
-        background-color: #00000080;
+        background-color: $fourthClr;
         margin-right:1rem;
         border-bottom-right-radius: 5px;
         border-top-right-radius: 5px;
@@ -149,10 +150,10 @@
             display: block;
             width: 10%;
             height: 41%;
-            background-color:#fff;
+            background-color: color.scale($fourthClr, $lightness : +70%);
             border-top-right-radius: 50px;
             border-top-left-radius: 50px;
-            box-shadow : 0 0 10px #00000050;
+            //box-shadow : 0 0 10px #00000050;
             &:hover{
                 cursor:pointer;
                 box-shadow: 0 0 25px #00000050;
@@ -167,10 +168,10 @@
             display: block;
             width: 10%;
             height: 41%;
-            background-color: #fff;
+            background-color: color.scale($fourthClr, $lightness : +70%);
             border-top-right-radius: 50px;
             border-top-left-radius: 50px;
-            box-shadow : 0 0 10px #00000050;
+            //box-shadow : 0 0 10px #00000050;
             &:hover{
                 cursor:pointer;
                 box-shadow: 0 0 25px #00000050;

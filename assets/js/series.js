@@ -88,7 +88,8 @@ function insertSeriesDatas( series ) {
         serieBlock.appendChild( titleContainer );
         serieBlock.appendChild( infosContainer );
 
-
+        // Problème de sécurité détecté à l'utilisation d'injection dynamique de contenu issu d'un fetch pouvant mener à des attaques de type DOOMXSS - source : module sécurité SNYK
+        //L'entrée non nettoyée des données d'une ressource distante circule dans le code HTML interne, où elle est utilisée pour construire dynamiquement la page HTML côté client. Cela peut entraîner une attaque de script inter-sites basée sur DOM (DOMXSS). Sécurité du code Snyk
         titleContainer.innerHTML = "Titre :" + serie.name;
         urlContainer.innerHTML = "<span>url :</span>" + serie.url;
         seasonContainer.innerHTML = "<span>Dernière saison :</span>" + serie.season;

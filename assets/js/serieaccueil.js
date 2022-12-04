@@ -101,27 +101,31 @@ function serieShowroom( series ){
     // Création des div conteneurs de chaque fiche serie
     series.forEach( serie => {
         
-        // Création de la div conteneur
+        // Création de la div conteneur principal de la fiche série
         let serieBlock = document.createElement( "article" );
         serieBlock.setAttribute( "class", "#showroomContainer__sliderBlockMask__sliderBlock__slide artMainContainer toSlide" );
         serieBlock.setAttribute( "id", serie.id );// ajout de l'id pour l'utilisation dans le slide
 
-
+        // Création de la div conteneur des informations textuelles
         let infosContainer = document.createElement( "div" );
         infosContainer.setAttribute( "class", "artMainContainer__mainInfos" );
 
+        // Création des titres
         let titleContainer = document.createElement( "h3" );
         titleContainer.setAttribute( "class", "artMainContainer__tilte" );
 
+        // Création de la div conteneur de l'image
         let imgMedBlockContainer = document.createElement( "div" );
         imgMedBlockContainer.setAttribute( "class", "artMainContainer__mainInfos__img" );
-        
+        // Création des images
         let imgMedContainer = document.createElement( "img" );
         imgMedContainer.setAttribute( "src", serie.image.medium );
-
+        
+        // Création de la div conteneur des détails textuels
         let detailsContainer = document.createElement( "div" );
         detailsContainer.setAttribute( "class", "artMainContainer__mainInfos__mainDetails" );
         
+        // Création des conteneurs de texte des détails
         let seasonContainer = document.createElement( "p" );
         let averageRuntimeContainer = document.createElement( "p" );
         //let ratingContainer = document.createElement( "p" );
@@ -129,6 +133,7 @@ function serieShowroom( series ){
         let typeContainer = document.createElement( "p" );
         let genreContainer = document.createElement( "p" );
 
+        // imbrication des conteneurs dans leurs parents respectifs
         detailsContainer.appendChild( seasonContainer );
         detailsContainer.appendChild( averageRuntimeContainer );
         //detailsContainer.appendChild( ratingContainer );
@@ -144,7 +149,8 @@ function serieShowroom( series ){
         serieBlock.appendChild( titleContainer );
         serieBlock.appendChild( infosContainer );
 
-
+        // CREATION DES CONTENUS TEXTE A INSÉRER DANS LEURS CONTENEURS
+        // particularité : si la saison n'est pas terminée de diffusée, la date est indéterminée => affichage d'un texte ou de la date de fin
         titleContainer.innerHTML = "Titre :" + serie.name;
         if ( serie.ended == null || undefined ) {
             seasonContainer.innerHTML = "<span>Dernière saison :</span>" + "Indéterminé";
@@ -161,7 +167,7 @@ function serieShowroom( series ){
         // statusContainer.innerHTML = "<span>Statut :</span>" + serie.show.status; // finalement abandonné mais dispo
         
 
-        // Création du bouton d'ouverture des détails
+        // Création du bouton d'ouverture des détails pour chaque série
         let btnSerieDetails = document.createElement( "a" );
         btnSerieDetails.setAttribute( "class", "btnShowMore" );
         //btnSerieDetails.setAttribute( "key", `${serie.show.id}` ); // finalement abandonné mais dispo
@@ -176,10 +182,10 @@ function serieShowroom( series ){
 
     } );
     
-    // Ecoute des boutons voir plus pour récupérer l'id de la série au click et a terme l'envoyer dans la page detailsserie.html
+    // Ecoute des boutons voir plus pour récupérer l'id de la série au click et a terme l'envoyer dans la page "detailsserie.html"
     let btnShowMores = document.querySelectorAll( ".btnShowMore" );
-
-    // Boucle sur les boutons "Voir plus" avec un addEventListener qui, au clic, recupère la valeur "key" et la store en local sous le nom de "serieId"
+    const toSlide = document.querySelectorAll( ".toSlide" );
+    // Boucle sur les boutons "Voir plus" avec un addEventListener qui, au clic, récupère la valeur "key" et la store en local sous le nom de "serieId"
     btnShowMores.forEach( ( btnShowMore ) => {
         btnShowMore.addEventListener( "click", () => {
             // défini la nouvelle valeur à stocker dans le local storage
@@ -197,7 +203,7 @@ console.log( "showroomContainer", showroomContainer )
 
 /* ========== Slider : Fonctionnement ========== */
 // Sélection du conteneur à déplacer
-const toSlide = document.querySelectorAll( ".toSlide" );
+
 console.log( "toSlide", toSlide )
 
 const toLeftMover = document.querySelector( "#toLeft" );
@@ -211,7 +217,7 @@ const getTarget = () => {
         console.log("valeur id", slide.id)
     })
 }
-getTarget();
+getTargetPlus();
 function scrollLeft() {
     toSlide.scrollTo( -200, 0 );
 }

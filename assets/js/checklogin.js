@@ -74,8 +74,8 @@ function checkAuth( emailIn, psdIn,users ) {
 
 // fonction d'appel de la page d'inscription
 function signIn() {
-    //window.open( "/signin.html" );
-    document.open( "/signin.html" );
+    window.open( "/signin.html" );
+    //document.open( "/signin.html" );
 }
 
 
